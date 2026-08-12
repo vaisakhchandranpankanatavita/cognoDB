@@ -1,0 +1,129 @@
+.search-container {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  font-size: 1.05rem;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 212, 255, 0.05);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.search-input:focus {
+  border-color: #00d4ff;
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  outline: none;
+}
+
+.search-results {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  max-width: 600px;
+  background: #1a1a2e;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.results-list {
+  list-style: none;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item:hover {
+  background-color: rgba(0, 212, 255, 0.1);
+}
+
+.result-info {
+  flex: 1;
+}
+
+.result-info h4 {
+  color: #00d4ff;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.result-genre,
+.result-year {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #999;
+  margin-right: 0.8rem;
+}
+
+.result-genre {
+  color: #00ffff;
+  margin-right: 0.3rem;
+}
+
+.result-year::before {
+  content: '•';
+  margin-right: 0.5rem;
+  color: #666;
+}
+
+.result-rating {
+  color: #ffd700;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.no-results {
+  padding: 1.5rem;
+  text-align: center;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .search-results {
+    position: static;
+    margin-top: 0.5rem;
+    max-height: none;
+  }
+
+  .search-input {
+    max-width: 100%;
+  }
+}
